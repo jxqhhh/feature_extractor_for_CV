@@ -18,4 +18,4 @@ if __name__ == '__main__':
 			feature = ft.hog(cv2.resize(cv2.imread(path+i,0),(40,40)),31,(8,8),(2,2)).reshape((1,1984))
 			result[j,:]=feature
 			j+=1
-	np.save("HOG_feature_extractor",result)			
+	np.save("CM_feature_extractor.npy",result)			
