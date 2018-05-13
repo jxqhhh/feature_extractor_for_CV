@@ -23,8 +23,8 @@ def censusTransformHistogram(filename):
 		for j in range(height):
 			ctImage[i][j]=censusTransform(image,i+1,j+1)
 
-	hist=np.histogram(ctImage.ravel(),254,[1,254])
-	
+	hist,_=np.histogram(ctImage.ravel(),254,[1,254])
+	return hist
 
 if __name__ == '__main__':
 	path=sys.argv[0].split('CENTRIST_feature_extractor.py')[0]
@@ -37,4 +37,5 @@ if __name__ == '__main__':
 	for i in os.listdir(path):
 		if i.split('_')[0]=='image':
 			result[j,:]=censusTransformHistogram(path+i)
+			j+=1
 	np.save("CENTRIST_feature.npy",result)
